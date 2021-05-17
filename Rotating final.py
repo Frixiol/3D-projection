@@ -1,3 +1,6 @@
+
+# Made in class while bored
+
 from tkinter import *
 import math
 
