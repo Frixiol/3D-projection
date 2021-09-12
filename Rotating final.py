@@ -1,5 +1,6 @@
 
 # Made in class while bored
+# you "normally" don't need any module for that one
 
 from tkinter import *
 import math
