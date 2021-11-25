@@ -7,9 +7,9 @@
 int main(void) {
 
   //                            x   y  z
-  int points[POINTS_MAX][3] = {{1, -2, 0}, 
-                              {-2,  1, 0}, 
-                              { 2,  2, 0}};
+  int points[POINTS_MAX][3] = {{5, -10, 0}, 
+                              {-10,  5, 0}, 
+                              { 10,  10, 0}};
 
 
 
@@ -63,23 +63,48 @@ int main(void) {
     printf("dx:%d, dy:%d\n", dx, dy);
 
     p = 2 * dy - dx;
-
-    while (x0 < points[(i + 1) % 3][0])
+    
+    if (dx > 0 && dy > 0)
     {
-      if(p>=0)
+      while (x0 < points[(i + 1) % 3][0] || y0 < points[(i + 1) % 3][1])
       {
-        tab[x0 + TAB_MAX/2][y0 + TAB_MAX/2] = '#';
-        y0++;
-        p=p+2*dy-2*dx;
+        if(p>=0)
+        {
+          tab[y0 + TAB_MAX/2][x0 + TAB_MAX/2] = '#';
+          y0++;
+          p += 2*dy - 2*dx;
+        }
+        else
+        {
+          tab[y0 + TAB_MAX/2][x0 + TAB_MAX/2] = '#';
+          p += 2*dy;
+          
+        }
+        x0++;
       }
-      else
-      {
-        tab[x0 + TAB_MAX/2][y0 + TAB_MAX/2] = '#';
-        p=p+2*dy;
-      }
-      x0++;
     }
-
+    else 
+    if (dx < 0 && dy < 0)
+    {
+      while (x0 > points[(i + 1) % 3][0] || y0 > points[(i + 1) % 3][1])
+      {
+        printf("%d\n", p);
+        if(p>=0)
+        {
+          tab[y0 + TAB_MAX/2][x0 + TAB_MAX/2] = '#';
+          p += dy;
+          x0--;
+          
+        }
+        else
+        {
+          tab[y0 + TAB_MAX/2][x0 + TAB_MAX/2] = '#';
+          // wtf pk quand on fait *2 sur dx sa marche 
+          p -= dy - 2*dx;
+        }
+        y0--;
+      }
+    }
 
   }
   
