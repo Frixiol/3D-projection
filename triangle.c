@@ -29,7 +29,7 @@ int main(void) {
 		
 	}
 	
-	char char_tab[15] = ".,-~:;=!*#$@%8&";
+	char char_tab[19] = ".,-~:;=!#$@%8&X";
 
 	double angle_x = 0;
 	double angle_y = 0;
@@ -162,7 +162,7 @@ int main(void) {
 		transformedx0 = points[i][0] * rotation_y[0][0] + points[i][1] * rotation_y[0][1] + points[i][2] * rotation_y[0][2];
 		transformedy0 = points[i][0] * rotation_y[1][0] + points[i][1] * rotation_y[1][1] + points[i][2] * rotation_y[1][2];
 		transformedz0 = points[i][0] * rotation_y[2][0] + points[i][1] * rotation_y[2][1] + points[i][2] * rotation_y[2][2];
-		/*		
+		/*
 		transformedx0 = transformedx0 * rotation_x[0][0] + transformedy0 * rotation_x[0][1] + transformedz0 * rotation_x[0][2];
 		transformedy0 = transformedx0 * rotation_x[1][0] + transformedy0 * rotation_x[1][1] + transformedz0 * rotation_x[1][2];
 		transformedz0 = transformedx0 * rotation_x[2][0] + transformedy0 * rotation_x[2][1] + transformedz0 * rotation_x[2][2];
@@ -180,7 +180,7 @@ int main(void) {
 		transformedx1 = points[(i + 1) % POINTS_MAX][0] * rotation_y[0][0] + points[(i + 1) % POINTS_MAX][1] * rotation_y[0][1] + points[(i + 1) % POINTS_MAX][2] * rotation_y[0][2];
 		transformedy1 = points[(i + 1) % POINTS_MAX][0] * rotation_y[1][0] + points[(i + 1) % POINTS_MAX][1] * rotation_y[1][1] + points[(i + 1) % POINTS_MAX][2] * rotation_y[1][2];
 		transformedz1 = points[(i + 1) % POINTS_MAX][0] * rotation_y[2][0] + points[(i + 1) % POINTS_MAX][1] * rotation_y[2][1] + points[(i + 1) % POINTS_MAX][2] * rotation_y[2][2];
-		/*	
+		/*
 		transformedx1 = transformedx1 * rotation_x[0][0] + transformedy1 * rotation_x[0][1] + transformedz1 * rotation_x[0][2];
 		transformedy1 = transformedx1 * rotation_x[1][0] + transformedy1 * rotation_x[1][1] + transformedz1 * rotation_x[1][2];
 		transformedz1 = transformedx1 * rotation_x[2][0] + transformedy1 * rotation_x[2][1] + transformedz1 * rotation_x[2][2];
@@ -188,7 +188,7 @@ int main(void) {
 		transformedx1 = transformedx1 * rotation_z[0][0] + transformedy1 * rotation_z[0][1] + transformedz1 * rotation_z[0][2];
 		transformedy1 = transformedx1 * rotation_z[1][0] + transformedy1 * rotation_z[1][1] + transformedz1 * rotation_z[1][2];
 		transformedz1 = transformedx1 * rotation_z[2][0] + transformedy1 * rotation_z[2][1] + transformedz1 * rotation_z[2][2];
-		*/	
+		*/
 		transformedx1 = transformedx1 * projection[0][0] + transformedy1 * projection[0][1] + transformedz1 * projection[0][2];
 		transformedy1 = transformedx1 * projection[1][0] + transformedy1 * projection[1][1] + transformedz1 * projection[1][2];
 		transformedz1 = transformedx1 * projection[2][0] + transformedy1 * projection[2][1] + transformedz1 * projection[2][2];
@@ -542,7 +542,7 @@ int main(void) {
 			n_ligne = right_point-left_point;
 			z_moyenne = z0 * ((n_ligne-index) / n_ligne) + z1 * (index / n_ligne);
 			
-			tab[i][y] = char_tab[12 - (z_moyenne + 10) / 2];
+			tab[i][y] = char_tab[9 - (z_moyenne + 12) / 3];
 			
 			
 		}
